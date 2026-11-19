@@ -126,4 +126,11 @@ Services (목록)
 
 ## 라이선스
 
-MIT License — Copyright (c) 2026 gcrun contributors. 자유롭게 사용·수정·재배포할 수 있습니다.
+**Proprietary — Copyright (c) 2026 zitrocy. All Rights Reserved.**
+
+- **무료 티어** — 이 저장소에서 배포하는 바이너리는 개인 및 내부 업무용으로 무료로 실행할 수 있습니다.
+- **Pro 기능**(canary·watch·advisor 리포트) — 유효한 라이선스 키가 필요합니다.
+- **소스 코드** — 비공개이며, 소스에 대한 사용 권한은 부여되지 않습니다.
+- **금지** — 역공학·디컴파일, 라이선스 검사 우회, 무단 재배포, 상업적 재판매.
+
+라이선스·상업적 이용 문의: https://github.com/zitrocy
