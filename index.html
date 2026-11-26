@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gcrun — Cloud Run canary, rollback and watch, next to your console</title>
+<meta name="description" content="gcrun is a free CLI/TUI for Google Cloud Run, plus a Chrome side panel for one-click canary, rollback, live 5xx watch and fleet checks. Local-only: every request goes to 127.0.0.1.">
+<meta property="og:title" content="gcrun — Cloud Run side panel">
+<meta property="og:description" content="Validate a canary in one click, roll back in one more. Free CLI and TUI; Pro unlocks the Chrome side panel.">
+<meta property="og:type" content="website">
+<style>
+  :root{--bg:#ffffff;--fg:#0f172a;--muted:#5b6577;--line:#e5e7eb;--card:#f7f9fb;--accent:#0f7c58;--accent2:#0b1a1f;--code:#f1f5f9}
+  @media (prefers-color-scheme:dark){:root{--bg:#0b0f17;--fg:#e5edf7;--muted:#94aebf;--line:#1f2a3a;--card:#111827;--accent:#3ddc97;--accent2:#07120f;--code:#0f1623}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",Roboto,Helvetica,Arial,sans-serif;word-break:keep-all}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+  .wrap{max-width:920px;margin:0 auto;padding:40px 24px 96px}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:56px}
+  .mark{width:40px;height:40px;border-radius:10px;background:var(--accent2);color:#3ddc97;font:700 17px/40px "SFMono-Regular",Menlo,Consolas,monospace;text-align:center}
+  header b{font-size:18px;letter-spacing:-.2px}
+  header nav{margin-left:auto;display:flex;gap:20px;font-size:14px}
+  header nav a{border-bottom:none;color:var(--muted)}
+  h1{font-size:clamp(30px,5vw,46px);line-height:1.15;letter-spacing:-1px;margin:0 0 16px}
+  .lede{font-size:19px;color:var(--muted);max-width:44em}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 8px}
+  .btn{display:inline-block;padding:12px 20px;border-radius:10px;border:1px solid var(--line);font-weight:600;border-bottom-width:1px}
+  .btn.primary{background:var(--accent);color:#04140f;border-color:var(--accent)}
+  .btn.ghost{color:var(--fg)}
+  .small{font-size:14px;color:var(--muted)}
+  section{margin-top:56px;border-top:1px solid var(--line);padding-top:32px}
+  h2{font-size:24px;letter-spacing:-.4px;margin:0 0 14px}
+  h3{font-size:17px;margin:24px 0 6px}
+  ul{padding-left:22px}
+  li{margin:6px 0}
+  pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow:auto;font-size:14px;line-height:1.55}
+  code{font-family:"SFMono-Regular",Menlo,Consolas,monospace}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  @media (max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .card h3{margin-top:0}
+  table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  .price{font-weight:700}
+  footer{margin-top:64px;border-top:1px solid var(--line);padding-top:20px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark">gc</div><b>gcrun</b>
+    <nav>
+      <a href="#install">Install</a>
+      <a href="#pro">Pro</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <h1>Canary, rollback and watch for Cloud Run — right next to the console.</h1>
+  <p class="lede">
+    <code>gcrun</code> is a command-line tool and TUI for Google Cloud Run. A Chrome side panel
+    adds one-click canary rollout with automatic rollback, live 5xx and instance watching, and
+    a fleet view across projects — all from the console tab you already have open.
+  </p>
+  <div class="cta">
+    <a class="btn primary" href="#pro">Get Extension Pro</a>
+    <a class="btn ghost" href="#install">Install the free CLI</a>
+  </div>
+  <p class="small">No account, no analytics, no server of ours. Every request the extension makes goes to
+    <code>127.0.0.1</code> on your own machine.</p>
+
+  <section id="install">
+    <h2>Install</h2>
+    <h3>1. CLI and TUI (free, forever)</h3>
+    <pre><code># macOS / Linux — pick the build for your platform from the releases page
+curl -L -o gcrun https://github.com/zitrocy/gcrun-releases/releases/latest/download/gcrun-linux-amd64
+chmod +x gcrun &amp;&amp; sudo mv gcrun /usr/local/bin/
+
+# check it
+gcrun --version
+gcrun tui              # services, revisions, logs, traffic — your existing gcloud login
+gcrun serve            # local bridge the Chrome side panel talks to (127.0.0.1:8787)</code></pre>
+    <p class="small">ARM builds and macOS binaries are on the
+      <a href="https://github.com/zitrocy/gcrun-releases/releases">releases page</a>.
+      Auth uses the credentials already on your machine (<code>gcloud auth login</code> or a service account).</p>
+
+    <h3>2. Chrome side panel</h3>
+    <p>Install <em>gcrun — Cloud Run Sidepanel</em> from the Chrome Web Store, open any
+      <code>console.cloud.google.com/run/…</code> tab, and open the side panel. See the
+      <a href="privacy.html">privacy policy</a> for exactly what it reads.</p>
+
+    <h3>3. What stays free</h3>
+    <ul>
+      <li>The whole CLI and TUI: services, revisions, YAML, logs, metrics, traffic split, manual rollback</li>
+      <li><code>gcrun canary</code>, <code>gcrun watch</code>, <code>gcrun advisor</code> in the terminal</li>
+      <li>The local bridge and the panel's read-only overview</li>
+    </ul>
+  </section>
+
+  <section id="pro">
+    <h2>Extension Pro</h2>
+    <p>Pro unlocks the browser side. You buy a license key, paste it into the panel once, and the
+      local bridge validates it with Polar. The key never reaches us; the bridge stores only the
+      validation result on your machine, with a 7-day offline grace period.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>One-click canary</h3>
+        <p class="small">Step the traffic 1% → 5% → 25% → 100% with a 5xx budget guard, and let it
+          roll back automatically when the new revision misbehaves.</p>
+      </div>
+      <div class="card">
+        <h3>Watch panel</h3>
+        <p class="small">Live 5xx rate and instance count for the service in the current tab, with
+          webhook alerts on the thresholds you set.</p>
+      </div>
+      <div class="card">
+        <h3>Fleet view</h3>
+        <p class="small">Every project and region you add, in one table — revisions, traffic and
+          recent error spikes.</p>
+      </div>
+      <div class="card">
+        <h3>Report export</h3>
+        <p class="small">Export the fleet and advisor report as Markdown or JSON for an incident
+          write-up or a handover.</p>
+      </div>
+    </div>
+
+    <h3>Pricing</h3>
+    <table>
+      <tr><th>Plan</th><th>Price</th><th></th></tr>
+      <tr><td>gcrun Pro — monthly</td><td class="price">$12 / month</td><td><a href="https://buy.polar.sh/polar_cl_d0FNZypMRe358k00v6MjANI4pmGxNdSFkJaq83Tgisd">Subscribe</a></td></tr>
+      <tr><td>gcrun Pro — yearly</td><td class="price">$99 / year</td><td><a href="https://buy.polar.sh/polar_cl_1rzFonwSQJJQMhaAy1N3auOrDVx6gDICcv5S00OXtmT">Subscribe</a></td></tr>
+      <tr><td>gcrun Pro — early bird (yearly)</td><td class="price">$79 / year</td><td><a href="https://buy.polar.sh/polar_cl_kKWrFdPS0FCAHTsgKaLkTKf0SvdViOMMs3W7p4cXtvs">Subscribe</a></td></tr>
+      <tr><td>gcrun Pro — team (up to 5 developers)</td><td class="price">$49 / month</td><td><a href="https://buy.polar.sh/polar_cl_E9tH6USf1SHEiXMJ4q5khIUWzuMZ5nDWQLayx2TBIJh">Subscribe</a></td></tr>
+    </table>
+    <p class="small">All plans can also be picked on one page:
+      <a href="https://buy.polar.sh/polar_cl_t38Ckb64tNBTFleo2AMaJ2U8mfyMM0rmYovcB4ZqHoY">buy.polar.sh</a>.
+      Payments, taxes, invoices and refunds are handled by Polar as the merchant of record —
+      see <a href="terms.html">Terms</a>.</p>
+
+    <h3>After you buy</h3>
+    <pre><code># key arrives by email; activate it on this machine
+gcrun activate GCRUN-XXXX-XXXX-XXXX
+
+# or paste it into the side panel: Extension Pro → License key → Activate</code></pre>
+  </section>
+
+  <section>
+    <h2>Why it is local-only</h2>
+    <p>The extension has no backend. It reads the URL of the console tab, asks the bridge on
+      <code>127.0.0.1:8787</code> for the facts, and draws them. Your gcloud credentials stay where
+      they are: the CLI makes the API calls. Nothing about your projects leaves the machine.</p>
+  </section>
+
+  <footer>
+    gcrun — Cloud Run Sidepanel · <a href="privacy.html">Privacy Policy</a> ·
+    <a href="terms.html">Terms</a> ·
+    <a href="https://github.com/zitrocy/gcrun-releases/issues">Contact</a>
+  </footer>
+</div>
+</body>
+</html>
