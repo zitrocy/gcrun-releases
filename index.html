@@ -106,8 +106,9 @@ gcrun serve            # local bridge the Chrome side panel talks to (127.0.0.1:
     <div class="grid">
       <div class="card">
         <h3>One-click canary</h3>
-        <p class="small">Step the traffic 1% → 5% → 25% → 100% with a 5xx budget guard, and let it
-          roll back automatically when the new revision misbehaves.</p>
+        <p class="small">Step the traffic 10% → 30% → 100% with a 5xx and latency budget guard, and
+          let it roll back automatically when the new revision misbehaves. A dry run rehearses the
+          sequence without moving a single request.</p>
       </div>
       <div class="card">
         <h3>Watch panel</h3>
