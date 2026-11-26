@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gcrun — Terms of Service</title>
+<meta name="description" content="Terms of service for the gcrun CLI, TUI and the gcrun — Cloud Run Sidepanel Chrome extension, including Extension Pro licenses billed through Polar.">
+<style>
+  :root{--bg:#ffffff;--fg:#0f172a;--muted:#5b6577;--line:#e5e7eb;--card:#f7f9fb;--accent:#0f7c58;--code:#f1f5f9}
+  @media (prefers-color-scheme:dark){:root{--bg:#0b0f17;--fg:#e5edf7;--muted:#94aebf;--line:#1f2a3a;--card:#111827;--accent:#3ddc97;--code:#0f1623}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",Roboto,Helvetica,Arial,sans-serif;word-break:keep-all}
+  .wrap{max-width:780px;margin:0 auto;padding:48px 24px 96px}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:32px}
+  .mark{width:40px;height:40px;border-radius:10px;background:#0b1a1f;color:#3ddc97;font:700 17px/40px "SFMono-Regular",Menlo,Consolas,monospace;text-align:center}
+  header b{font-size:18px}
+  h1{font-size:30px;letter-spacing:-.6px;margin:0 0 8px}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 8px}
+  h2{font-size:20px;margin:36px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+  p,li{margin:0 0 12px}
+  ul{padding-left:22px}
+  code{font-family:"SFMono-Regular",Menlo,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:5px;font-size:.94em}
+  footer{margin-top:56px;border-top:1px solid var(--line);padding-top:18px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><div class="mark">gc</div><b>gcrun</b></header>
+  <h1>Terms of Service</h1>
+  <p class="meta">Effective 2026-11-26 · Applies to the gcrun CLI, TUI and the “gcrun — Cloud Run Sidepanel” Chrome extension</p>
+
+  <h2>1. What this covers</h2>
+  <p>These terms are between you and the individual developer publishing gcrun (“we”, “us”).
+    They cover the <code>gcrun</code> command-line tool and TUI, the local bridge
+    (<code>gcrun serve</code>), and the “gcrun — Cloud Run Sidepanel” Chrome extension together
+    with the optional Extension Pro license.</p>
+
+  <h2>2. License</h2>
+  <ul>
+    <li><strong>Free tier.</strong> The CLI, the TUI, the local bridge and the side panel's read-only
+      overview are free to use on any number of machines you operate.</li>
+    <li><strong>Extension Pro.</strong> A Pro license grants one person a non-exclusive,
+      non-transferable right to use the extension's Pro features (one-click canary, rollback,
+      watch panel, fleet view and report export), activated on up to five devices.</li>
+    <li><strong>Not open source.</strong> The software is proprietary. Running it is allowed;
+      copying, redistributing, reselling, reverse-engineering the license check, or sharing a
+      license key beyond the activations purchased is not.</li>
+  </ul>
+
+  <h2>3. Payment, renewal and cancellation</h2>
+  <p>Extension Pro is sold through <a href="https://polar.sh">Polar</a>, which acts as the
+    merchant of record. Polar handles payment processing, sales tax and invoicing in your
+    jurisdiction, so the charge on your statement comes from Polar.</p>
+  <ul>
+    <li>Subscriptions renew automatically at the interval you chose (monthly or yearly) at the
+      price shown when you subscribed, until you cancel.</li>
+    <li>You can cancel at any time from the license email Polar sends you, or through Polar's
+      customer portal. Cancelling stops the next renewal; the current period runs to its end.</li>
+    <li>Prices shown are in US dollars. Tax is calculated by Polar at checkout.</li>
+  </ul>
+
+  <h2>4. Refunds</h2>
+  <p>Refunds are handled by Polar under its
+    <a href="https://polar.sh/legal/refund-policy">refund policy</a>. If something is wrong with a
+    purchase, write to us through the contact link below or to Polar directly and we will work it
+    out — we would rather refund an unhappy customer than keep the money.</p>
+
+  <h2>5. Your responsibilities</h2>
+  <ul>
+    <li>You need your own Google Cloud account and credentials. gcrun runs with the permissions you
+      already have; it does not grant any.</li>
+    <li>Changes you make with gcrun — traffic shifts, canaries, rollbacks — act on your real
+      services. Review the plan the tool prints before you confirm it.</li>
+    <li>Do not use gcrun to attack, scan or access infrastructure you are not authorized to
+      operate.</li>
+  </ul>
+
+  <h2>6. No warranty</h2>
+  <p>gcrun is provided “as is”, without warranty of any kind, express or implied, including
+    fitness for a particular purpose. It is an operations helper, not a substitute for your own
+    change control or backups. To the maximum extent permitted by law, we are not liable for
+    indirect, incidental or consequential damages, or for lost profits, data or business, arising
+    from your use of the software. Nothing here limits liability that cannot be limited by law.</p>
+
+  <h2>7. Changes to the software and these terms</h2>
+  <p>We may change features and these terms. Material changes are noted in the release notes and
+    get a new effective date on this page. Continuing to use the software after a change means you
+    accept the updated terms. A price change never applies to a subscription period you already
+    paid for.</p>
+
+  <h2>8. Privacy</h2>
+  <p>The software collects no data. See the <a href="privacy.html">privacy policy</a> for what the
+    extension reads and where it goes (only to your own machine).</p>
+
+  <h2>9. Governing law</h2>
+  <p>These terms are governed by the laws of the Republic of Korea, without regard to conflict of
+    law rules.</p>
+
+  <footer>
+    <a href="index.html">gcrun</a> · <a href="privacy.html">Privacy Policy</a> ·
+    <a href="https://github.com/zitrocy/gcrun-releases/issues">Contact</a>
+  </footer>
+</div>
+</body>
+</html>
