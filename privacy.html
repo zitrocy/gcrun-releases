@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gcrun — Cloud Run Sidepanel · Privacy Policy / 개인정보처리방침</title>
+<meta name="description" content="Privacy policy for the gcrun — Cloud Run Sidepanel Chrome extension. No data collection, local-only bridge communication.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #111827;
+    --muted: #5b6577;
+    --line: #e5e7eb;
+    --card: #f8fafc;
+    --accent: #0f7c58;
+    --accent-soft: #e8f6f0;
+    --code-bg: #f1f5f9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0f17;
+      --fg: #e5edf7;
+      --muted: #94a3b8;
+      --line: #1f2a3a;
+      --card: #111827;
+      --accent: #3ddc97;
+      --accent-soft: #10281f;
+      --code-bg: #0f1623;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+          "Noto Sans KR", Roboto, Helvetica, Arial, sans-serif;
+    word-break: keep-all;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 48px 24px 96px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 12px; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .mark {
+    width: 40px; height: 40px; border-radius: 10px; flex: 0 0 auto;
+    background: #0c2023; color: #3ddc97; font: 700 17px/40px "SFMono-Regular", Menlo, Consolas, monospace;
+    text-align: center; letter-spacing: -.5px;
+  }
+  .brand b { font-size: 18px; letter-spacing: -.2px; }
+  h1 { font-size: 30px; line-height: 1.25; letter-spacing: -.6px; margin: 0 0 10px; }
+  h2 {
+    font-size: 20px; letter-spacing: -.3px; margin: 44px 0 12px;
+    padding-top: 20px; border-top: 1px solid var(--line);
+  }
+  h3 { font-size: 16px; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 16px; padding-left: 22px; }
+  li { margin: 5px 0; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+  code {
+    font: 13.5px/1.5 "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    background: var(--code-bg); border-radius: 5px; padding: 2px 6px;
+  }
+  .meta { color: var(--muted); font-size: 14px; }
+  .badge {
+    display: inline-block; background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 600;
+  }
+  .lead {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px 22px; margin: 24px 0 8px;
+  }
+  .lead p:last-child { margin-bottom: 0; }
+  .nav { margin: 22px 0 0; display: flex; gap: 10px; flex-wrap: wrap; }
+  .nav a {
+    border: 1px solid var(--line); border-radius: 999px; padding: 7px 16px;
+    font-size: 14px; font-weight: 600; color: var(--fg); background: var(--card);
+  }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+  .lang-section + .lang-section { margin-top: 8px; }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  @media (max-width: 560px) {
+    .wrap { padding: 32px 18px 72px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; }
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    td { border: 0; padding: 4px 0; }
+    tr { border-bottom: 1px solid var(--line); padding: 10px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="mark">&gt;_</div>
+      <b>gcrun</b>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">gcrun — Cloud Run Sidepanel · Chrome extension v0.3.0</p>
+    <p class="meta">Effective 2026-11-21 · Last updated 2026-11-21</p>
+    <p class="meta"><span class="badge">No data collection</span></p>
+    <nav class="nav">
+      <a href="#en">English</a>
+      <a href="#ko">한국어</a>
+      <a href="#contact">Contact / 문의</a>
+    </nav>
+  </header>
+
+  <!-- ───────────────────────── English ───────────────────────── -->
+  <section class="lang-section" id="en" lang="en">
+
+    <div class="lead">
+      <p><strong>gcrun</strong> is a Chrome side panel for the Google Cloud Run console. It reads
+      the URL of the Cloud Run console page you have open, summarizes that service in the side
+      panel, and talks <strong>only to a bridge program running on your own computer</strong>
+      (<code>http://127.0.0.1</code> or <code>http://localhost</code>).</p>
+      <p>The extension does not collect, transmit, sell, or share any user data. There is no
+      account, no analytics, no telemetry, no advertising, and no external server operated by
+      the developer. Everything the extension knows stays in your browser profile on your
+      device.</p>
+    </div>
+
+    <h2>1. Single purpose</h2>
+    <p>Show a side panel next to <code>console.cloud.google.com</code> that summarizes the Cloud
+    Run service the user is looking at, and — when the user has installed the local
+    <code>gcrun</code> command-line tool — offer canary rollout, rollback, live watching and
+    fleet checks for that service through the local bridge.</p>
+
+    <h2>2. What the extension reads</h2>
+    <table>
+      <thead>
+        <tr><th>Data</th><th>Why</th><th>Where it goes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The <strong>URL string</strong> of browser tabs, e.g.
+            <code>https://console.cloud.google.com/run/detail/asia-northeast3/api?project=my-proj</code></td>
+          <td>Parse the project, region and service of the Cloud Run page you are on</td>
+          <td>Parsed in the browser; the extracted project / region / service is kept in
+            <code>chrome.storage.session</code> only</td>
+        </tr>
+        <tr>
+          <td>The panel's own settings and UI state (bridge address, optional bridge token,
+            auto-refresh toggle, extra project IDs for a fleet check)</td>
+          <td>Remember your settings between openings</td>
+          <td><code>chrome.storage.local</code> on your device</td>
+        </tr>
+        <tr>
+          <td>The bridge's responses (service list, revisions, traffic split, metric snapshots,
+            license status)</td>
+          <td>Render the panel</td>
+          <td>Shown in the panel; not stored anywhere else</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Not read, not requested, not stored:</strong> page content or DOM of any website,
+    form fields, passwords, cookies, browsing history, GCP OAuth tokens, GCP service-account
+    keys, <code>gcloud</code> configuration, log contents, or the contents of your Cloud Run
+    traffic.</p>
+    <p>The extension ships <strong>no content scripts</strong>. It never injects JavaScript into
+    a page and never scrapes the console DOM; it works from the address-bar URL alone.</p>
+
+    <h2>3. Where data goes</h2>
+    <ul>
+      <li><strong>Loopback only.</strong> Every network request the extension makes goes to the
+        address configured in the panel (default <code>http://127.0.0.1:8787</code>), a program
+        running on the same machine. The extension has no server of its own.</li>
+      <li><strong>No developer server.</strong> The developer operates no backend that receives
+        extension data.</li>
+      <li><strong>No third-party services.</strong> No analytics, crash reporting, advertising or
+        tracking SDKs are bundled. The package contains no remote code; every script is inside
+        the extension.</li>
+      <li><strong>No sale or sharing.</strong> User data is not sold, rented or transferred to
+        anyone, and is not used for advertising, profiling or any purpose unrelated to the
+        single purpose above.</li>
+    </ul>
+
+    <h2>4. Google Cloud credentials</h2>
+    <p>The extension <strong>never asks for, reads or stores Google Cloud credentials</strong>,
+    and does not call Google Cloud APIs itself. When you use a privileged action (canary,
+    rollback, fleet check) the extension asks the local bridge, and the <code>gcrun</code> CLI
+    performs the API call with the credentials already present on your machine — for example
+    your own <code>gcloud</code> login. Those credentials never pass through the extension.</p>
+
+    <h2>5. Extension Pro license (optional)</h2>
+    <p>Pro features are unlocked with a license key bought from the payment provider
+    (Polar.sh or Lemon Squeezy) and pasted into the panel once.</p>
+    <ul>
+      <li>The key is sent to the <strong>local bridge</strong> — not to the developer, and not by
+        the extension to the provider.</li>
+      <li>The <code>gcrun</code> CLI validates the key with the provider over HTTPS and stores
+        the result in <code>~/.config/gcrun/license.json</code> on your machine, with a 7-day
+        offline grace period.</li>
+      <li>The panel only displays the status the bridge reports, which may include the email
+        address the provider returned for that license so you can tell which license is active.</li>
+      <li>If you never enter a key, no licensing request is made at all. All CLI/TUI features
+        remain free and the panel's overview works without a key.</li>
+    </ul>
+
+    <h2>6. Retention and deletion</h2>
+    <ul>
+      <li><code>chrome.storage.local</code> — kept until you change the setting or remove the
+        extension.</li>
+      <li><code>chrome.storage.session</code> — memory-backed, cleared when the browser closes.</li>
+      <li>Removing the extension from <code>chrome://extensions</code> deletes both stores.</li>
+      <li>The bridge's license file lives outside the extension at <code>~/.config/gcrun/</code>;
+        delete it or run <code>gcrun license deactivate</code> to remove that record.</li>
+    </ul>
+
+    <h2>7. Permissions and why they are needed</h2>
+    <ul>
+      <li><code>sidePanel</code> — display the extension as a Chrome side panel.</li>
+      <li><code>tabs</code> — read the URL of tabs so the panel knows which Cloud Run service you
+        have open, and follow you between tabs without a reload. The URL is parsed; the page is
+        never read.</li>
+      <li><code>storage</code> — save your panel settings and the current console context
+        locally.</li>
+      <li><code>https://console.cloud.google.com/*</code> — recognise that the current tab is a
+        Cloud Run console route. No script is injected into the console.</li>
+      <li><code>http://127.0.0.1/*</code>, <code>http://localhost/*</code> — allow the panel to
+        reach the local <code>gcrun</code> bridge.</li>
+    </ul>
+
+    <h2>8. Children</h2>
+    <p>This is a developer tool and is not directed to children under 13.</p>
+
+    <h2>9. Changes</h2>
+    <p>If this policy changes, the updated text is published at this address with a new effective
+    date. Material changes are noted in the extension's release notes.</p>
+
+  </section>
+
+  <!-- ───────────────────────── 한국어 ───────────────────────── -->
+  <section class="lang-section" id="ko" lang="ko">
+
+    <h2>개인정보처리방침</h2>
+
+    <div class="lead">
+      <p><strong>gcrun</strong>은 구글 클라우드 런(Cloud Run) 콘솔 옆에 붙는 크롬 사이드패널입니다.
+      지금 열려 있는 Cloud Run 콘솔 페이지의 URL을 읽어 서비스 정보를 요약하고,
+      <strong>사용자 컴퓨터에서 실행 중인 브릿지 프로그램</strong>(<code>http://127.0.0.1</code>
+      또는 <code>http://localhost</code>)과만 통신합니다.</p>
+      <p>이 확장프로그램은 어떤 사용자 데이터도 수집·전송·판매·공유하지 않습니다. 계정도, 분석
+      도구도, 텔레메트리도, 광고도, 개발자가 운영하는 외부 서버도 없습니다. 확장프로그램이 아는
+      모든 정보는 사용자 기기의 브라우저 프로필 안에만 남습니다.</p>
+    </div>
+
+    <h2>1. 단일 목적</h2>
+    <p><code>console.cloud.google.com</code> 옆에 사이드패널을 띄워 지금 보고 있는 Cloud Run
+    서비스를 요약하고, 사용자가 로컬 <code>gcrun</code> 명령줄 도구를 설치한 경우 로컬 브릿지를
+    통해 카나리 배포·롤백·실시간 감시·Fleet 점검을 제공합니다.</p>
+
+    <h2>2. 확장프로그램이 읽는 것</h2>
+    <table>
+      <thead>
+        <tr><th>데이터</th><th>목적</th><th>이동 경로</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>브라우저 탭의 <strong>URL 문자열</strong> (예:
+            <code>https://console.cloud.google.com/run/detail/asia-northeast3/api?project=my-proj</code>)</td>
+          <td>현재 열린 Cloud Run 페이지의 프로젝트·리전·서비스 파악</td>
+          <td>브라우저 안에서 파싱하며, 추출한 프로젝트·리전·서비스는
+            <code>chrome.storage.session</code>에만 보관</td>
+        </tr>
+        <tr>
+          <td>사이드패널 자체 설정과 UI 상태 (브릿지 주소, 선택적 브릿지 토큰, 자동 새로고침 여부,
+            Fleet 점검용 추가 프로젝트 ID)</td>
+          <td>다시 열었을 때 설정 유지</td>
+          <td>사용자 기기의 <code>chrome.storage.local</code></td>
+        </tr>
+        <tr>
+          <td>브릿지 응답 (서비스 목록, 리비전, 트래픽 비율, 지표 스냅샷, 라이선스 상태)</td>
+          <td>패널 화면 표시</td>
+          <td>화면에만 표시하고 다른 곳에 저장하지 않음</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>읽지 않고, 요청하지도 않고, 저장하지 않는 것:</strong> 웹페이지 본문이나 DOM,
+    입력폼 값, 비밀번호, 쿠키, 방문 기록, GCP OAuth 토큰, GCP 서비스 계정 키,
+    <code>gcloud</code> 설정, 로그 내용, Cloud Run 트래픽 데이터의 내용.</p>
+    <p>이 확장프로그램은 <strong>콘텐츠 스크립트를 포함하지 않습니다.</strong> 어떤 페이지에도
+    자바스크립트를 주입하지 않고 콘솔 화면을 긁지 않습니다. 주소창의 URL만으로 동작합니다.</p>
+
+    <h2>3. 데이터가 가는 곳</h2>
+    <ul>
+      <li><strong>루프백(로컬)만 사용합니다.</strong> 확장프로그램이 보내는 모든 요청은 패널
+        설정에 입력한 주소(기본값 <code>http://127.0.0.1:8787</code>)로만 향하며, 이는 같은
+        컴퓨터에서 도는 프로그램입니다. 확장프로그램 자체 서버는 없습니다.</li>
+      <li><strong>개발자 서버가 없습니다.</strong> 확장프로그램 데이터를 받는 개발자 백엔드가
+        존재하지 않습니다.</li>
+      <li><strong>제3자 서비스가 없습니다.</strong> 분석·오류 수집·광고·추적 SDK를 넣지 않았습니다.
+        원격 코드를 쓰지 않으며 모든 스크립트는 확장프로그램 패키지 안에 있습니다.</li>
+      <li><strong>판매·공유하지 않습니다.</strong> 사용자 데이터를 판매·대여·이전하지 않고,
+        광고·프로파일링 등 위 단일 목적과 무관한 용도로 사용하지 않습니다.</li>
+    </ul>
+
+    <h2>4. 구글 클라우드 자격증명</h2>
+    <p>확장프로그램은 <strong>구글 클라우드 자격증명을 요구·열람·저장하지 않습니다.</strong>
+    확장프로그램이 직접 구글 클라우드 API를 호출하지도 않습니다. 카나리·롤백·Fleet 점검 같은
+    작업을 요청하면 로컬 브릿지를 거쳐 <code>gcrun</code> CLI가 사용자 기기에 이미 있는
+    자격증명(예: 사용자 본인의 <code>gcloud</code> 로그인)으로 API를 호출합니다. 그 자격증명은
+    확장프로그램을 거치지 않습니다.</p>
+
+    <h2>5. Extension Pro 라이선스 (선택)</h2>
+    <p>Pro 기능은 결제 대행사(Polar.sh 또는 Lemon Squeezy)에서 구매한 라이선스 키를 패널에 한 번
+    입력하면 열립니다.</p>
+    <ul>
+      <li>입력한 키는 <strong>로컬 브릿지</strong>로만 전달되며, 확장프로그램이 개발자나 결제
+        대행사로 직접 보내지 않습니다.</li>
+      <li><code>gcrun</code> CLI가 HTTPS로 결제 대행사에 키를 검증하고, 결과를 사용자 기기의
+        <code>~/.config/gcrun/license.json</code>에 저장합니다(오프라인 7일 유예).</li>
+      <li>패널은 브릿지가 알려준 상태만 표시하며, 어떤 라이선스가 활성인지 알 수 있도록 결제
+        대행사가 반환한 이메일 주소가 함께 표시될 수 있습니다.</li>
+      <li>키를 입력하지 않으면 라이선스 요청 자체가 발생하지 않습니다. CLI/TUI 기능은 전부
+        무료이고, 패널의 개요 화면도 키 없이 동작합니다.</li>
+    </ul>
+
+    <h2>6. 보관과 삭제</h2>
+    <ul>
+      <li><code>chrome.storage.local</code> — 설정을 바꾸거나 확장프로그램을 제거할 때까지
+        유지됩니다.</li>
+      <li><code>chrome.storage.session</code> — 메모리 기반이며 브라우저를 닫으면 지워집니다.</li>
+      <li><code>chrome://extensions</code>에서 확장프로그램을 제거하면 두 저장소가 모두
+        삭제됩니다.</li>
+      <li>브릿지의 라이선스 파일은 확장프로그램 밖 <code>~/.config/gcrun/</code>에 있으며, 이
+        파일을 지우거나 <code>gcrun license deactivate</code>를 실행하면 로컬 라이선스 기록이
+        삭제됩니다.</li>
+    </ul>
+
+    <h2>7. 권한과 사유</h2>
+    <ul>
+      <li><code>sidePanel</code> — 확장프로그램을 크롬 사이드패널로 표시하기 위해.</li>
+      <li><code>tabs</code> — 지금 열려 있는 Cloud Run 서비스를 알기 위해 탭의 URL을 읽고,
+        탭을 옮겨도 패널을 다시 불러오지 않기 위해. URL만 파싱하며 페이지 내용은 읽지
+        않습니다.</li>
+      <li><code>storage</code> — 패널 설정과 현재 콘솔 컨텍스트를 기기에 저장하기 위해.</li>
+      <li><code>https://console.cloud.google.com/*</code> — 현재 탭이 Cloud Run 콘솔 경로인지
+        확인하기 위해. 콘솔 화면에 스크립트를 주입하지 않습니다.</li>
+      <li><code>http://127.0.0.1/*</code>, <code>http://localhost/*</code> — 로컬
+        <code>gcrun</code> 브릿지에 접근하기 위해.</li>
+    </ul>
+
+    <h2>8. 아동</h2>
+    <p>이 확장프로그램은 개발자 도구이며 만 13세 미만 아동을 대상으로 하지 않습니다.</p>
+
+    <h2>9. 변경</h2>
+    <p>방침이 바뀌면 같은 주소에 새 시행일과 함께 게시하며, 중요한 변경은 릴리스 노트에
+    적습니다.</p>
+
+  </section>
+
+  <footer id="contact">
+    <p><strong>Contact / 문의</strong> — <a href="https://github.com/zitrocy/gcrun-releases/issues">github.com/zitrocy/gcrun-releases/issues</a></p>
+    <p>gcrun — Cloud Run Sidepanel v0.3.0 · Effective 2026-11-21</p>
+  </footer>
+
+</div>
+</body>
+</html>
