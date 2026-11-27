@@ -78,12 +78,12 @@ Cloud Run 콘솔 옆에 붙는 사이드패널입니다.
 gcrun serve          # 로컬 브릿지 (127.0.0.1:8787), 선택: --token auto
 ```
 
-1. Chrome 웹 스토어에서 **gcrun — Cloud Run Sidepanel** 설치
+1. [Chrome 웹 스토어](https://chromewebstore.google.com/detail/mobcbebnjeigolmbdalkbbipdibpilpo)에서 **gcrun — Cloud Run Sidepanel** 설치 (v0.3.1, 8개 언어)
 2. Cloud Run 서비스 페이지(`console.cloud.google.com/run/...`)를 열고 툴바 아이콘 클릭
 3. 패널이 현재 탭의 URL에서 프로젝트·리전·서비스를 읽어 리비전·트래픽·명령어를 보여줍니다
 
-> 스토어 등록 심사 전에는 릴리즈에 첨부된 `gcrun-chrome-extension.zip`을 내려받아 압축을 풀고
-> `chrome://extensions` → 개발자 모드 → **압축해제된 확장 프로그램을 로드**로 같은 기능을 쓸 수 있습니다.
+> 스토어 설치가 막힌 환경(사내 정책 등)에서는 릴리즈에 첨부된 `gcrun-chrome-extension.zip`을 내려받아
+> 압축을 풀고 `chrome://extensions` → 개발자 모드 → **압축해제된 확장 프로그램을 로드**로 같은 기능을 쓸 수 있습니다.
 
 **무료**: 패널의 조회 화면, CLI·TUI 전 기능(`canary`·`watch`·`advisor` 포함)
 **Pro**: 패널의 원클릭 카나리(10→30→100% + 5xx 가드, 자동 롤백·드라이런), 원클릭 롤백,
